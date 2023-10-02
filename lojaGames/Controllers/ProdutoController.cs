@@ -13,7 +13,7 @@ namespace lojaGames.Controllers
     [Route("~/produtos")]
     [ApiController]
     
-    public class ProdutoController : Controller
+    public class ProdutoController : ControllerBase
     {
         private readonly IProdutoService _produtoService;
 

@@ -12,7 +12,7 @@ namespace lojaGames.Controllers
 {
     [Route("~/categorias")]
     [ApiController]
-    public class CategoriaController : Controller
+    public class CategoriaController : ControllerBase
     {
         private readonly ICategoriaService _categoriaService;
         private readonly IValidator<Categoria> _categoriaValidator;

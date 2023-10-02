@@ -13,7 +13,7 @@ namespace lojaGames.Validator
         {
             RuleFor(t => t.Tipo)
                     .NotEmpty()
-                    .MinimumLength(10)
+                    .MinimumLength(2)
                     .MaximumLength(250);
         }
     }

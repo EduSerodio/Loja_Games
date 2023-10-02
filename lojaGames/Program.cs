@@ -1,4 +1,9 @@
+using FluentValidation;
 using lojaGames.Data;
+using lojaGames.Model;
+using lojaGames.Service;
+using lojaGames.Service.Implements;
+using lojaGames.Validator;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,6 +18,15 @@ var connectionString = builder.Configuration.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString)
 );
+
+// registrar validações do banco de dados -NEW
+builder.Services.AddTransient<IValidator<Produto>, ProdutoValidator>();
+builder.Services.AddTransient<IValidator<Categoria>, CategoriaValidator>();
+
+//Registrar as classes de serviço (SERVICE)
+builder.Services.AddScoped<IProdutoService, ProdutoService> ();
+builder.Services.AddScoped<ICategoriaService, CategoriaService> ();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
