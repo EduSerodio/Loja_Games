@@ -1,4 +1,4 @@
-# Edu_Loja de Games
+# Loja de Games
 
 Esta é a documentação para a API de uma loja de games que permite a manipulação de dados de produtos e categorias relacionadas a jogos. Esta API foi construída seguindo as melhores práticas do ASP.NET e oferece funcionalidades completas para gerenciar produtos e categorias.
 
