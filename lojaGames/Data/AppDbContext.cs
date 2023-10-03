@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 using lojaGames.Model;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace lojaGames.Data
 {
@@ -19,7 +21,7 @@ namespace lojaGames.Data
 
                 modelBuilder.Entity<Produto>()
                 .HasOne( _ => _.Categoria)
-                .WithMany(c => c.Produto)
+                .WithMany(c => c!.Produto)
                 .HasForeignKey("CategoriaId")
                 .OnDelete(DeleteBehavior.Cascade);
         }
@@ -29,6 +31,25 @@ namespace lojaGames.Data
         public DbSet<Categoria> Categorias { get; set; } = null!;
 
         public DbSet<Produto> Produtos { get; set; } = null!;
+
+         public class DateOnlyConverter : ValueConverter<DateOnly, DateTime>
+        {
+            public DateOnlyConverter()
+                : base(dateOnly =>
+                        dateOnly.ToDateTime(TimeOnly.MinValue),
+                    dateTime => DateOnly.FromDateTime(dateTime))
+            { }
+        }
+
+
+        protected override void ConfigureConventions(ModelConfigurationBuilder builder)
+        {
+            builder.Properties<DateOnly>()
+                .HaveConversion<DateOnlyConverter>()
+                .HaveColumnType("date");
+
+            base.ConfigureConventions(builder);
+        }
 
     }
 }

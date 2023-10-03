@@ -19,6 +19,16 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(connectionString)
 );
 
+// Add services to the container.
+//configuração para não criar um loop infinito no JASON quando fizermos requisição
+builder.Services.AddControllers()
+    .AddNewtonsoftJson(
+        Options =>
+        {
+            Options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+        }
+    );
+
 // registrar validações do banco de dados -NEW
 builder.Services.AddTransient<IValidator<Produto>, ProdutoValidator>();
 builder.Services.AddTransient<IValidator<Categoria>, CategoriaValidator>();

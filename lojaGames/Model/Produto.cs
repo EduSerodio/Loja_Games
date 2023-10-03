@@ -1,11 +1,5 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-using lojaGames.Util;
 using Microsoft.EntityFrameworkCore;
 
 namespace lojaGames.Model
@@ -29,8 +23,7 @@ namespace lojaGames.Model
         public string Console {get; set;} = string.Empty;
 
         [Column(TypeName = "date")]
-        [JsonConverter(typeof(DateOnlyJsonConverter))]
-        public DateTime DataLancamento { get; set; }
+        public DateOnly DataLancamento { get; set; }
 
         [Column(TypeName = "decimal")]
         [Precision(7,2)]

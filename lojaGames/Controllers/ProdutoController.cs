@@ -1,11 +1,6 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FluentValidation;
 using lojaGames.Model;
 using lojaGames.Service;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace lojaGames.Controllers
@@ -16,7 +11,6 @@ namespace lojaGames.Controllers
     public class ProdutoController : ControllerBase
     {
         private readonly IProdutoService _produtoService;
-
         private readonly IValidator<Produto> _produtoValidator;
 
         public ProdutoController(IProdutoService produtoService, IValidator<Produto> produtoValidator)

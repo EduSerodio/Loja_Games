@@ -18,7 +18,7 @@ namespace lojaGames.Validator
 
             RuleFor(t => t.Descricao)
                     .NotEmpty()
-                    .MinimumLength(10)
+                    .MinimumLength(5)
                     .MaximumLength(1000);
 
             RuleFor(t => t.Console)
@@ -30,7 +30,9 @@ namespace lojaGames.Validator
                    .NotEmpty();
 
             RuleFor(t => t.Preco)
-                   .NotEmpty();
+                   .NotEmpty()
+                   .GreaterThan(0)
+                   .PrecisionScale(10, 2, false);
 
             RuleFor(t => t.Foto)
                    .NotEmpty()

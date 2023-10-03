@@ -18,7 +18,7 @@ namespace lojaGames.Model
         public string Tipo { get; set; } = string.Empty;
 
         [InverseProperty("Categoria")]
-        public virtual ICollection<Produto>? Produto { get; set; }
+        public virtual ICollection<Produto>? Produto { get; set; } = new List<Produto>();
 
     }
 }

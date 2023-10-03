@@ -8,7 +8,7 @@ namespace lojaGames.Service
 {
     public interface IProdutoService
     {
-        Task<IEnumerable<Produto>>GetAll();
+        Task<IEnumerable<Produto>> GetAll();
         Task<Produto?> GetById(long id);
         Task<IEnumerable<Produto>> GetByNomeOuConsole(string nome, string console);
         Task<IEnumerable<Produto>> GetByPrecoIntervalo(decimal min, decimal max);
