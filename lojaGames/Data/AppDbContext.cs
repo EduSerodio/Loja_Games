@@ -18,6 +18,7 @@ namespace lojaGames.Data
         {
             modelBuilder.Entity<Produto>().ToTable("tb_produtos");
             modelBuilder.Entity<Categoria>().ToTable("tb_categorias");
+            modelBuilder.Entity<User>().ToTable("tb_usuarios");
 
                 modelBuilder.Entity<Produto>()
                 .HasOne( _ => _.Categoria)
@@ -29,8 +30,8 @@ namespace lojaGames.Data
 
         //para manipular
         public DbSet<Categoria> Categorias { get; set; } = null!;
-
         public DbSet<Produto> Produtos { get; set; } = null!;
+        public DbSet<User> Users { get; set; } = null!;
 
          public class DateOnlyConverter : ValueConverter<DateOnly, DateTime>
         {

@@ -79,3 +79,5 @@
 /home/eduardo/Área de Trabalho/Loja_Games/lojaGames/obj/Debug/net7.0/lojaGames.pdb
 /home/eduardo/Área de Trabalho/Loja_Games/lojaGames/obj/Debug/net7.0/lojaGames.genruntimeconfig.cache
 /home/eduardo/Área de Trabalho/Loja_Games/lojaGames/obj/Debug/net7.0/ref/lojaGames.dll
+/home/eduardo/Área de Trabalho/Loja_Games/lojaGames/bin/Debug/net7.0/BCrypt.Net-Core.dll
+/home/eduardo/Área de Trabalho/Loja_Games/lojaGames/bin/Debug/net7.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
